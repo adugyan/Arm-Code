@@ -1,31 +1,13 @@
 //Practice file to get segemnts moving and get used to using IK
-class Segment {
-    Pvector a;
-    float angle;
-    float len;
-    
-    Pvector b = new Pvector();
-    
-    //Constructor
-    Segment(float x, float y, float len_, float angle_){
-        a = new Pvector(x,y);
-        len = len_;
-        angle = angle_;
-    }
-    void calculateB() {
-        float dx = len * cos(angle);
-        float dy = len * sin(angle);
-        b.set(a.x+dx, a.y+dy);
-        
-    }
-    
-    void update() {
-     calculateB();   
-    }
-    
-    void show(){
-        stroke(255);
-        strokeWeight(4);
-        line(a.x, a.y, b.x, b.y)
-    }
+Segment seg;
+
+void setup() {
+    size(600, 400);
+    seg = new Segment(300, 200, 100, 0);
+}
+
+void draw() {
+    background(51);
+    seg.update();
+    seg.show();
 }
